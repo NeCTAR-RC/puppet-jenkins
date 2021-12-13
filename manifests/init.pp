@@ -76,7 +76,6 @@ class jenkins(
   }
 
   include jenkins::service
-  include jenkins::firewall
 
   Class['jenkins::repo'] ->
     Class['jenkins::package'] ->
