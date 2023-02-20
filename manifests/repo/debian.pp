@@ -11,7 +11,7 @@ class jenkins::repo::debian ( $lts=0 )
       release     => 'binary/',
       repos       => '',
       key         => {
-        'id'     => '150FDE3F7787E7D11EF4E12A9B7D32F2D50582E6',
+        'id'     => '62A9756BFD780C377CF24BA8FCEF32E745F2C3D5',
         'source' => 'http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key',
       },
     }
@@ -23,7 +23,7 @@ class jenkins::repo::debian ( $lts=0 )
       release     => 'binary/',
       repos       => '',
       key         => {
-        'id'     => '150FDE3F7787E7D11EF4E12A9B7D32F2D50582E6',
+        'id'     => '62A9756BFD780C377CF24BA8FCEF32E745F2C3D5',
         'source' => 'http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key',
       },
     }
