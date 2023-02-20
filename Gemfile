@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 gem 'rake'
-gem 'puppet', '~> 2.7'
+gem 'puppet'
 gem 'puppet-module'
 
 group :development do
@@ -10,6 +10,4 @@ group :development do
   gem 'puppetlabs_spec_helper'
   gem 'rspec'
   gem 'rspec-puppet'
-  gem 'blimpy'
-  gem 'vagrant'
 end
