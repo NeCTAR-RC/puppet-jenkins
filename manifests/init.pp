@@ -66,21 +66,16 @@ class jenkins(
     'jenkins::package' :
       version => $version;
   }
-
-  class { 'jenkins::config':
+  -> class { 'jenkins::config':
       config_hash => $config_hash,
   }
-
-  class { 'jenkins::plugins':
+  -> class { 'jenkins::plugins':
       plugin_hash => $plugin_hash,
   }
 
   include jenkins::service
 
-  Class['jenkins::repo'] ->
-    Class['jenkins::package'] ->
-      Class['jenkins::config'] ~>
-        Class['jenkins::service']
+  Class['jenkins::config'] ~> Class['jenkins::service']
 }
 
 # vim: ts=2 et sw=2 autoindent
