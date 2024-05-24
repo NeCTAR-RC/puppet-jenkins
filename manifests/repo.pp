@@ -7,7 +7,7 @@ class jenkins::repo ($lts=0, $repo=1) {
   anchor { 'jenkins::repo::omega': }
 
   if ($repo == 1) {
-    case $::osfamily {
+    case $facts['os']['family'] {
 
       'RedHat': {
         class {
@@ -37,7 +37,7 @@ class jenkins::repo ($lts=0, $repo=1) {
       }
 
       default: {
-        fail( "Unsupported OS family: ${::osfamily}" )
+        fail( "Unsupported OS family: ${facts['os']['family']}" )
       }
     }
   }

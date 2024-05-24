@@ -61,8 +61,8 @@ class jenkins(
     'jenkins::repo':
       lts  => $lts,
       repo => $repo,
-  }->
-  class {
+  }
+  -> class {
     'jenkins::package' :
       version => $version;
   }

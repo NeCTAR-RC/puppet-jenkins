@@ -1,10 +1,10 @@
 # Class: jenkins::sysconfig
 #
 define jenkins::sysconfig ( $value ) {
-  $path = $::osfamily ? {
+  $path = $facts['os']['family'] ? {
     'RedHat'  => '/etc/sysconfig',
     'Debian'  => '/etc/default',
-    default => fail( "Unsupported OSFamily ${::osfamily}" )
+    default => fail( "Unsupported OSFamily ${facts['os']['family']}" )
   }
 
   file_line { "Jenkins sysconfig setting ${name}":
