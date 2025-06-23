@@ -5,27 +5,25 @@ class jenkins::repo::debian ( $lts=0 )
 
   include 'jenkins::repo'
 
+  apt::keyring { 'jenkins.asc':
+    source => 'https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key',
+  }
+
   if $jenkins::repo::lts == 0 {
     apt::source { 'jenkins':
-      location => 'http://pkg.jenkins-ci.org/debian',
+      location => 'https://pkg.jenkins.io/debian',
       release  => 'binary/',
       repos    => '',
-      key      => {
-        'id'     => '62A9756BFD780C377CF24BA8FCEF32E745F2C3D5',
-        'source' => 'http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key',
-      },
+      keyring  => '/etc/apt/keyrings/jenkins.asc',
     }
 
   }
   elsif $jenkins::repo::lts == 1 {
     apt::source { 'jenkins':
-      location => 'http://pkg.jenkins-ci.org/debian-stable',
+      location => 'https://pkg.jenkins.io/debian-stable',
       release  => 'binary/',
       repos    => '',
-      key      => {
-        'id'     => '62A9756BFD780C377CF24BA8FCEF32E745F2C3D5',
-        'source' => 'http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key',
-      },
+      keyring  => '/etc/apt/keyrings/jenkins.asc',
     }
   }
 
