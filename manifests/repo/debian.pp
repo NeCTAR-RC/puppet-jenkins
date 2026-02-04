@@ -6,7 +6,7 @@ class jenkins::repo::debian ( $lts=0 )
   include 'jenkins::repo'
 
   apt::keyring { 'jenkins.asc':
-    source => 'https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key',
+    source => 'https://pkg.jenkins.io/debian-stable/jenkins.io-2026.key',
   }
 
   if $jenkins::repo::lts == 0 {
