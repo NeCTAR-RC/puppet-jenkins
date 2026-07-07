@@ -13,7 +13,7 @@ class jenkins::repo::debian ( $lts=0 )
     apt::source { 'jenkins':
       location => 'https://pkg.jenkins.io/debian',
       release  => 'binary/',
-      repos    => '',
+      repos    => ' ',
       keyring  => '/etc/apt/keyrings/jenkins.asc',
     }
 
@@ -22,7 +22,7 @@ class jenkins::repo::debian ( $lts=0 )
     apt::source { 'jenkins':
       location => 'https://pkg.jenkins.io/debian-stable',
       release  => 'binary/',
-      repos    => '',
+      repos    => ' ',
       keyring  => '/etc/apt/keyrings/jenkins.asc',
     }
   }
